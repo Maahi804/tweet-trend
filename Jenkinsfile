@@ -6,6 +6,7 @@ pipeline {
     }
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+    SONAR_TOKEN = credentials('SONAR_TOKEN')
     
 }
    stages {
@@ -30,6 +31,21 @@ environment {
                  echo "----------- unit test Complted ----------"
             }
         }
+         stage('SonarQube Analysis') {
+            steps {
+                script {
+                    // Run SonarQube analysis
+                    sh """
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=tweet-trend7_tweet \
+                    -Dsonar.organization=tweet-trend7 \
+                    -Dsonar.host.url=https://sonarcloud.io \
+                    -Dsonar.token=${SONAR_TOKEN}
+                    """
+                }
+            }
+        }
+
 
 }
 }
