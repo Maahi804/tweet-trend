@@ -56,8 +56,8 @@ stage("Jar Publish") {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "/home/ubuntu/jenkins/workspace/tweet-trend/tweet-trend/target/(*)",
-                              "target": "tweet-trend-libs-release-local/{1}",
+                              "pattern": "/home/ubuntu/jenkins/workspace/tweettrend/tweettrend/target/(*)",
+                              "target": "tweettrend-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
