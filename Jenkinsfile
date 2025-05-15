@@ -46,8 +46,7 @@ environment {
                 }
             }
         }
-        
-stage("Jar Publish") {
+        stage("Jar Publish") {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -56,11 +55,11 @@ stage("Jar Publish") {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "jarstaging/(*)",
+                              "pattern": /home/ubuntu/jenkins/workspace/tweettrend/taxi-booking/target/(*)",
                               "target": "tweettrend-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
-                              "exclusions": [ ".sha1", ".md5"]
+                              "exclusions": [ "*.sha1", "*.md5"]
                             }
                          ]
                      }"""
@@ -69,8 +68,12 @@ stage("Jar Publish") {
                      server.publishBuildInfo(buildInfo)
                      echo '<--------------- Jar Publish Ended --------------->'  
              }
-  }
-  }
+        }   
+    }
+
+
+        
+
 
 
 
