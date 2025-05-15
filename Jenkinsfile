@@ -56,7 +56,7 @@ stage("Jar Publish") {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "/home/ubuntu/jenkins/workspace/taxi-booking/taxi-booking/target/(*)",
+                              "pattern": "/home/ubuntu/jenkins/workspace/tweet-trend/tweet-trend/target/(*)",
                               "target": "tweet-trend-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
