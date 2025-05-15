@@ -56,11 +56,11 @@ stage("Jar Publish") {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": "/home/ubuntu/jenkins/workspace/tweettrend/tweettrend/target/(*)",
+                              "pattern": "jarstaging/(*)",
                               "target": "tweettrend-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
-                              "exclusions": [ "*.sha1", "*.md5"]
+                              "exclusions": [ ".sha1", ".md5"]
                             }
                          ]
                      }"""
@@ -69,8 +69,8 @@ stage("Jar Publish") {
                      server.publishBuildInfo(buildInfo)
                      echo '<--------------- Jar Publish Ended --------------->'  
              }
-        }   
-    }
+  }
+  }
 
 
 
