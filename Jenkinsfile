@@ -55,7 +55,7 @@ environment {
                      def uploadSpec = """{
                           "files": [
                             {
-                              "pattern": /home/ubuntu/jenkins/workspace/tweettrend/taxi-booking/target/(*)",
+                              "pattern": "/home/ubuntu/jenkins/workspace/taxi-booking/taxi-booking/target/(*)",
                               "target": "tweettrend-libs-release-local/{1}",
                               "flat": "false",
                               "props" : "${properties}",
@@ -70,6 +70,7 @@ environment {
              }
         }   
     }
+
 
 
         
